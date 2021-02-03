@@ -12,6 +12,7 @@ def prepare_script(function, varriables):
     return f'''
     set print "-" append;
     set fit quiet;
+    set fit logfile '/dev/null';
     set fit errorvariables;
     f(x) = {function};
     fit f(x) '-' u 1:2:3 yerrors via {",".join(varriables)};
